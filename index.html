@@ -2332,9 +2332,27 @@
 
   <!-- NAV -->
   <nav id="main-nav">
-    <div class="nav-logo" onclick="goTo(0)">
+    <!-- <div class="nav-logo" onclick="goTo(0)">
       <img src="images/logo_karsa.png" alt="PT Karsa Swakarya Loka"
         style="height:40px;object-fit:contain;display:block">
+    </div> -->
+    <div class="nav-logo" onclick="showPage('home')">
+      <div class="nav-logo" onclick="goTo(0)">
+        <img src="images/icontol.svg" alt="PT Karsa Swakarya Loka" style="height:40px;object-fit:contain;display:block">
+      </div>
+      <!-- <div class="nav-logo-icon">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="15,10 15,50 52,28" />
+          <polygon points="15,50 15,90 52,68" opacity="0.75" />
+          <polygon points="52,28 85,48 52,68" opacity="0.9" />
+          <polygon points="52,68 85,48 85,72" opacity="0.55" />
+        </svg>
+      </div> -->
+      <div class="nav-logo-text">
+        <span class="brand">PT Karsa</span>
+        <span class="brand">Swakarya Loka</span>
+        <!-- <span class="tagline">Solusi Digital, Karya untuk Negeri</span> -->
+      </div>
     </div>
     <ul class="nav-links">
       <li><a id="nav-0" class="active" onclick="goTo(0)">Home</a></li>

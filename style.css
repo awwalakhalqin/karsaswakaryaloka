@@ -108,12 +108,59 @@ nav.scrolled {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
 }
 
-.nav-logo {
+/* .nav-logo {
   display: flex;
   align-items: center;
   gap: 12px;
   cursor: pointer;
   flex-shrink: 0;
+} */
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--grad);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.nav-logo-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: white;
+}
+
+.nav-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.nav-logo-text .brand {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.01em;
+}
+
+.nav-logo-text .tagline {
+  font-size: 0.55rem;
+  font-weight: 400;
+  color: var(--cyan);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .nav-links {
