@@ -1,0 +1,140 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <img src="/images/icontol.svg" alt="Karsa Loka" class="logo-icon" />
+          <span class="logo-text">Karsa Loka</span>
+        </div>
+        <p class="brand-desc">
+          Partner transformasi digital terpercaya untuk pengembangan sistem enterprise, aplikasi mobile, dan solusi teknologi modern lintas industri.
+        </p>
+      </div>
+      
+      <div class="footer-links">
+        <h3>Layanan</h3>
+        <ul>
+          <li><a href="/#services">Enterprise Systems</a></li>
+          <li><a href="/#services">Mobile App Development</a></li>
+          <li><a href="/#services">SaaS & Cloud Solution</a></li>
+          <li><a href="/#services">Digital Transformation</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h3>Perusahaan</h3>
+        <ul>
+          <li><a href="/about">Tentang Kami</a></li>
+          <li><a href="/portfolio">Portofolio</a></li>
+          <li><a href="/contact">Hubungi Kami</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h3>Kontak</h3>
+        <p>Email: hello@karsaswakaryaloka.id</p>
+        <p>Telepon: +62 822-9988-7554</p>
+        <p>Lokasi: Bogor, Indonesia Raya</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {currentYear} PT Karsa Swakarya Loka. Hak Cipta Dilindungi.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    padding: 5rem 0 2rem;
+    margin-top: auto;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .logo-icon {
+    width: 28px;
+    height: 28px;
+    opacity: 0.8;
+  }
+
+  .logo-text {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--color-text-main);
+  }
+
+  .brand-desc {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    max-width: 350px;
+  }
+
+  .footer-links h3, .footer-contact h3 {
+    color: var(--color-text-main);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-links ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-links a {
+    color: var(--color-text-muted);
+    transition: color 0.2s ease;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-primary-light);
+  }
+
+  .footer-contact p {
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--color-border);
+    padding-top: 2rem;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 992px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+</style>

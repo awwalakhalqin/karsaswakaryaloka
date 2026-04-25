@@ -1,0 +1,252 @@
+---
+import { Image } from 'astro:assets';
+import Button from './Button.astro';
+
+const navItems = [
+  { label: 'Beranda', href: '/' },
+  { label: 'Layanan', href: '/#services' },
+  { label: 'Portofolio', href: '/portfolio' },
+  { label: 'Tentang', href: '/about' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="header" id="header">
+  <div class="container header-container">
+    <a href="/" class="logo-link">
+      <Image 
+        src="/images/icontol.svg" 
+        alt="Karsa Swakarya Loka" 
+        class="logo-icon" 
+        width={32} 
+        height={32}
+        loading="eager"
+      />
+      <span class="logo-text">Karsa Loka</span>
+    </a>
+    
+    <nav class="desktop-nav">
+      <ul>
+        {navItems.map((item) => (
+          <li>
+            <a 
+              href={item.href} 
+              class={`nav-link ${currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href)) ? 'active' : ''}`}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div class="nav-actions">
+        <Button href="/contact" variant="primary">Hubungi Kami</Button>
+      </div>
+    </nav>
+    
+    <!-- Mobile Menu Toggle (Requires Vanilla JS hydration if needed, but we keep it simple) -->
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-toggle" aria-label="Toggle menu" id="mobile-toggle">
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav" id="mobile-nav">
+      <nav class="mobile-nav-content">
+        <ul>
+          {navItems.map((item) => (
+            <li>
+              <a 
+                href={item.href} 
+                class={`mobile-link ${currentPath === item.href ? 'active' : ''}`}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div class="mobile-nav-actions">
+          <Button href="/contact" variant="primary">Hubungi Kami</Button>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100; /* Higher z-index for navbar */
+    height: var(--nav-height);
+    background: rgba(3, 7, 18, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+  }
+  
+  .header.scrolled {
+    background: rgba(3, 7, 18, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  /* ... Existing Desktop Styles ... */
+  .logo-link { display: flex; align-items: center; gap: 0.75rem; }
+  .logo-icon { width: 32px; height: 32px; }
+  .logo-text {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--color-text-main);
+  }
+
+  .desktop-nav { display: flex; align-items: center; gap: 3rem; }
+  .desktop-nav ul { display: flex; gap: 2rem; }
+  .nav-link {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    transition: color 0.2s ease;
+    position: relative;
+  }
+  .nav-link.active, .nav-link:hover { color: var(--color-text-main); }
+
+  /* Hamburger Styles */
+  .mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 110;
+  }
+
+  .hamburger {
+    width: 24px;
+    height: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text-main);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-toggle.open .hamburger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .mobile-toggle.open .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-toggle.open .hamburger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Mobile Nav Menu Styles */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: var(--color-bg);
+    z-index: 105;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .mobile-nav.open {
+    right: 0;
+  }
+
+  .mobile-nav-content {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+
+  .mobile-nav-content ul {
+    list-style: none;
+    margin-bottom: 3rem;
+  }
+
+  .mobile-link {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    padding: 1rem 0;
+    transition: color 0.2s ease;
+  }
+
+  .mobile-link:hover, .mobile-link.active {
+    color: var(--color-cyan);
+  }
+
+  @media (max-width: 768px) {
+    .desktop-nav { display: none; }
+    .mobile-toggle { display: block; }
+  }
+</style>
+
+<script>
+  function initNav() {
+    const header = document.getElementById('header');
+    const toggle = document.getElementById('mobile-toggle');
+    const nav = document.getElementById('mobile-nav');
+    const body = document.body;
+    const links = document.querySelectorAll('.mobile-link');
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle('open');
+        nav.classList.toggle('open');
+        body.style.overflow = nav.classList.contains('open') ? 'hidden' : 'auto';
+      });
+
+      // Close menu when a link is clicked
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          toggle.classList.remove('open');
+          nav.classList.remove('open');
+          body.style.overflow = 'auto';
+        });
+      });
+    }
+
+    // Scroll effect
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header?.classList.add('scrolled');
+      } else {
+        header?.classList.remove('scrolled');
+      }
+    });
+  }
+
+  // Support for View Transitions
+  document.addEventListener('astro:page-load', initNav);
+</script>

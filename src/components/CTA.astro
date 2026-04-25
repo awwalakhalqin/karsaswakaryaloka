@@ -1,0 +1,68 @@
+---
+import Button from './Button.astro';
+---
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box glass-panel animate-fade-in">
+      <div class="cta-content">
+        <h2 class="cta-title">Siap Membangun <span class="text-gradient">Ekosistem Digital</span> Anda?</h2>
+        <p class="cta-desc">
+          Konsultasikan kebutuhan teknologi perusahaan Anda dengan tim ahli kami secara gratis. Mari wujudkan inovasi bersama Karsa Swakarya Loka.
+        </p>
+        <div class="cta-actions">
+          <Button href="/contact" variant="primary">Mulai Konsultasi</Button>
+          <Button href="/portfolio" variant="outline">Lihat Hasil Kerja</Button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    padding-bottom: 8rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-box {
+    padding: 5rem 3rem;
+    text-align: center;
+    background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent);
+    border-color: rgba(59, 130, 246, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-content {
+    max-width: 800px;
+  }
+
+  .cta-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-desc {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 576px) {
+    .cta-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+</style>

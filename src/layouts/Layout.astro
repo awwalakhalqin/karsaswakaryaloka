@@ -1,0 +1,69 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { 
+  title, 
+  description = "PT Karsa Swakarya Loka – Software house Indonesia spesialis sistem klinik, operasional bisnis, dan corporate system." 
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="id">
+  	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- SEO Meta Tags -->
+		<title>{title} | PT Karsa Swakarya Loka</title>
+		<meta name="description" content={description} />
+		<meta name="keywords" content="Software House Indonesia, Jasa Pembuatan Aplikasi Enterprise, Sistem Informasi Klinik, Aplikasi Pendidikan, Smart City Solution, Jasa Web Corporate, Custom Software Developer, ERP Indonesia, Mobile App Developer Bogor" />
+		<link rel="canonical" href={Astro.url} />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={`${title} | PT Karsa Swakarya Loka`} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/images/og-image.png" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={`${title} | PT Karsa Swakarya Loka`} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content="/images/og-image.png" />
+
+		<!-- JSON-LD Local Business Schema -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "ProfessionalService",
+				"name": "PT Karsa Swakarya Loka",
+				"description": "Software house terpercaya spesialis sistem informasi, aplikasi mobile, dan solusi teknologi enterprise.",
+				"url": "https://karsaswakaryaloka.id",
+				"address": {
+					"@type": "PostalAddress",
+					"addressLocality": "Bogor",
+					"addressCountry": "ID"
+				},
+				"openingHours": "Mo-Fr 09:00-17:00"
+			}
+		</script>
+
+		<ViewTransitions />
+  </head>
+  <body>
+    <!-- Setup for navbar and footer later -->
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

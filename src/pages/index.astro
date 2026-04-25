@@ -1,0 +1,479 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Button from '../components/Button.astro';
+import Card from '../components/Card.astro';
+import CTA from '../components/CTA.astro';
+
+const title = "Software House & Digital Solution Partner";
+const description = "PT Karsa Swakarya Loka - Software House spesialis pembuatan sistem informasi, aplikasi mobile, dan solusi transformasi digital enterprise di Indonesia.";
+
+const technologies = [
+  { name: 'Astro / Next.js', category: 'Modern Frontend' },
+  { name: 'React / Vue.js', category: 'Component UI' },
+  { name: 'Golang / Gin', category: 'High Perf Backend' },
+  { name: 'PHP / Laravel', category: 'Enterprise Backend' },
+  { name: 'Supabase / Firebase', category: 'Backend as a Service' },
+  { name: 'Node.js / Bun', category: 'Backend Runtime' },
+  { name: 'TypeScript', category: 'Scalable Language' },
+  { name: 'Python / Django', category: 'AI & Data Science' },
+  { name: 'PostgreSQL / MySQL', category: 'Relational DB' },
+  { name: 'Redis / MongoDB', category: 'NoSQL & Caching' },
+  { name: 'S3 / Cloudflare R2', category: 'Object Storage' },
+  { name: 'AWS / GCP / Azure', category: 'Cloud Infrastructure' },
+  { name: 'Flutter / RN', category: 'Mobile Development' },
+  { name: 'Docker / K8s', category: 'Containerization' },
+  { name: 'Prisma / Drizzle', category: 'Type-safe ORM' },
+  { name: 'Figma', category: 'UI/UX Design' }
+];
+
+const services = [
+  {
+    title: "Enterprise Systems",
+    description: "Kami membangun solusi ERP, CRM, dan sistem manajemen internal kustom yang dirancang untuk mengotomatisasi proses bisnis yang kompleks dan meningkatkan efisiensi operasional."
+  },
+  {
+    title: "Mobile App Development",
+    description: "Pengembangan aplikasi mobile native (Flutter/React Native) untuk Android dan iOS dengan performa tinggi, desain modern, dan integrasi API yang mulus."
+  },
+  {
+    title: "SaaS & Cloud Solution",
+    description: "Membangun platform berbasis cloud yang scalable dengan arsitektur modern (Serverless/Microservices) untuk menjangkau pengguna global secara aman."
+  },
+  {
+    title: "Digital Transformation",
+    description: "Membantu perusahaan melakukan migrasi sistem legacy ke teknologi web modern (Astro/Next.js) untuk meningkatkan performa bisnis dan daya saing digital."
+  },
+  {
+    title: "AI & Data Engineering",
+    description: "Implementasi solusi berbasis kecerdasan buatan, integrasi Machine Learning, dan pengolahan Big Data untuk membantu pengambilan keputusan berbasis data."
+  },
+  {
+    title: "UI/UX & Branding",
+    description: "Desain visual yang berfokus pada pengguna, interaksi yang intuitif, dan pengembangan identitas brand digital yang konsisten untuk membangun kepercayaan audiens."
+  }
+];
+---
+
+<Layout title="Beranda">
+  <Navbar />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-bg">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+      </div>
+      
+      <div class="container hero-content">
+        <div class="animate-fade-in" style="animation-delay: 0.1s;">
+          <span class="section-label">Software House Indonesia</span>
+          <h1 class="hero-title">
+            Membangun <span class="text-gradient">Ekosistem Digital</span> Masa Depan
+          </h1>
+          <p class="hero-subtitle">
+            Karsa Swakarya Loka berdedikasi membangun perangkat lunak berkualitas tinggi. Solusi end-to-end yang mengutamakan keamanan, skalabilitas, dan pengalaman pengguna premium.
+          </p>
+          <div class="hero-actions">
+            <Button href="/portfolio" variant="primary">Lihat Karya Kami</Button>
+            <Button href="/contact" variant="outline">Konsultasi Gratis</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services-section">
+      <div class="container">
+        <div class="section-header animate-fade-in" style="animation-delay: 0.2s;">
+          <h2 class="section-title">Layanan & Solusi</h2>
+          <p class="section-subtitle">
+            Kami menyediakan layanan menyeluruh untuk transformasi digital perusahaan Anda, dari desain awal hingga peluncuran sistem berskala besar.
+          </p>
+        </div>
+        
+        <div class="services-grid">
+          {services.map((service, index) => (
+            <div class="animate-fade-in" style={`animation-delay: ${0.2 + (index * 0.1)}s;`}>
+              <Card 
+                title={service.title} 
+                description={service.description}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Us / Core Values -->
+    <section class="section values-section">
+      <div class="container">
+        <div class="values-grid">
+          <div class="values-content animate-fade-in">
+            <span class="section-label">Nilai Karsa</span>
+            <h2 class="section-title">Inovasi yang Menggerakkan Bisnis</h2>
+            <p class="section-subtitle" style="max-width: 100%;">
+              Setiap baris kode yang kami tulis bertujuan memberikan nilai nyata. Dengan pendekatan berbasis data dan best-practice industri, kami memastikan investasi teknologi Anda menghasilkan keuntungan jangka panjang.
+            </p>
+            <ul class="values-list">
+              <li>
+                <div class="value-icon">✓</div>
+                <div>
+                  <strong>Arsitektur Skalabel</strong>
+                  <p>Sistem dirancang untuk tumbuh seiring bertambahnya pengguna Anda.</p>
+                </div>
+              </li>
+              <li>
+                <div class="value-icon">✓</div>
+                <div>
+                  <strong>Keamanan Data Utama</strong>
+                  <p>Implementasi enkripsi canggih dan protokol keamanan ketat.</p>
+                </div>
+              </li>
+              <li>
+                <div class="value-icon">✓</div>
+                <div>
+                  <strong>Dukungan 24/7</strong>
+                  <p>Tim support kami selalu siap menjaga stabilitas operasional Anda.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="values-visual animate-fade-in animate-float" style="animation-delay: 0.3s;">
+            <div class="glass-panel visual-box">
+               <div class="code-snippet">
+                 <p><span style="color:var(--color-secondary)">const</span> <span style="color:var(--color-primary-light)">accelerateBusiness</span> = <span style="color:var(--color-secondary)">async</span> () {"=>"} {"{"}</p>
+                 <p>&nbsp;&nbsp;<span style="color:var(--color-secondary)">await</span> Karsa.build({"{"}</p>
+                 <p>&nbsp;&nbsp;&nbsp;&nbsp;performance: <span style="color:#10b981">'maximum'</span>,</p>
+                 <p>&nbsp;&nbsp;&nbsp;&nbsp;security: <span style="color:#10b981">'enterprise'</span>,</p>
+                 <p>&nbsp;&nbsp;&nbsp;&nbsp;design: <span style="color:#10b981">'pixel-perfect'</span></p>
+                 <p>&nbsp;&nbsp;{"}"});</p>
+                 <p>{"}"}</p>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="section tech-section">
+      <div class="container text-center">
+        <span class="section-label">Teknologi Terkini</span>
+        <h2 class="section-title">Dibangun dengan <span class="text-gradient">Modern Tech Stack</span></h2>
+        <p class="section-subtitle mx-auto">
+          Kami menggunakan teknologi terbaru untuk memastikan performa yang cepat, aman, dan mudah dimaintain di masa depan.
+        </p>
+        
+        <div class="tech-grid">
+          {technologies.map((tech) => (
+            <div class="tech-item glass-panel">
+               <span class="tech-name">{tech.name}</span>
+               <span class="tech-cat">{tech.category}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    </section>
+
+    <!-- Industry Focus Section -->
+    <section class="industries">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">Industries We Serve</span>
+          <h2>Solusi Tailor-Made untuk Berbagai Industri</h2>
+          <p>Kami memahami setiap industri memiliki tantangan unik. PT Karsa Swakarya Loka menghadirkan solusi teknologi yang spesifik untuk kebutuhan sektor Anda.</p>
+        </div>
+        
+        <div class="industry-grid">
+          <div class="industry-card">
+            <h3>Healthcare</h3>
+            <p>Sistem Informasi Klinik (SIK), Manajemen Rumah Sakit, dan Rekam Medis Elektronik.</p>
+          </div>
+          <div class="industry-card">
+            <h3>Enterprise</h3>
+            <p>ERP, CRM, Automasi Workflow, dan Dashboard Analitik untuk efisiensi korporat.</p>
+          </div>
+          <div class="industry-card">
+            <h3>Education</h3>
+            <p>LMS, Sistem Akademik sekolah, dan platform pembelajaran digital interaktif.</p>
+          </div>
+          <div class="industry-card">
+            <h3>Retail & SME</h3>
+            <p>Point of Sale (POS), Inventory Management, dan E-commerce platform.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTA />
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .mx-auto { margin-left: auto; margin-right: auto; }
+  .text-center { text-align: center; }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .tech-item {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: left;
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .tech-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--color-cyan);
+    transform: translateY(-5px);
+  }
+
+  /* Industries Section */
+  .industries {
+    padding: 100px 0;
+    position: relative;
+    background: linear-gradient(to bottom, transparent, rgba(6, 18, 45, 0.5));
+  }
+
+  .industry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  .industry-card {
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-lg);
+    transition: all 0.3s ease;
+  }
+
+  .industry-card:hover {
+    border-color: var(--color-cyan);
+    background: rgba(14, 165, 233, 0.05);
+    transform: scale(1.02);
+  }
+
+  .industry-card h3 {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+    color: var(--color-cyan);
+    margin-bottom: 1rem;
+  }
+
+  .industry-card p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .industry-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .tech-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--color-text-main);
+  }
+
+  .tech-cat {
+    font-size: 0.8125rem;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+  }
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: var(--nav-height);
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle at center, rgba(17, 24, 39, 0) 0%, var(--color-bg) 100%);
+  }
+
+  .glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.3;
+    z-index: -2;
+  }
+
+  .orb-1 {
+    top: -10%;
+    left: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: var(--color-primary);
+  }
+
+  .orb-2 {
+    bottom: -20%;
+    right: -10%;
+    width: 40vw;
+    height: 40vw;
+    background: var(--color-secondary);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 8vw, 5rem);
+    margin: 1.5rem 0;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 650px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .services-section {
+    position: relative;
+    background: var(--color-surface);
+  }
+
+  .services-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+  }
+
+  .section-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .values-section {
+    position: relative;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .values-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .values-list li {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .value-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(6, 182, 212, 0.1);
+    color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .values-list strong {
+    display: block;
+    font-size: 1.125rem;
+    color: var(--color-text-main);
+    margin-bottom: 0.5rem;
+  }
+
+  .values-list p {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
+  .visual-box {
+    padding: 3rem;
+    border-color: rgba(59, 130, 246, 0.2);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  .code-snippet {
+    font-family: monospace;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 992px) {
+    .values-grid {
+      grid-template-columns: 1fr;
+    }
+    .visual-box {
+      margin-top: 2rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+</style>

@@ -1,0 +1,68 @@
+---
+// src/components/Button.astro
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'outline';
+  class?: string;
+}
+
+const { href, variant = 'primary', class: className = '' } = Astro.props;
+
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag href={href} class={`btn btn-${variant} ${className}`}>
+  <slot />
+</Tag>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    line-height: 1.5;
+    border-radius: 9999px; /* Pill shape */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: none;
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .btn:active {
+    transform: scale(0.95);
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  .btn-primary:hover {
+    background-color: #2563eb; /* Darker blue */
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+  }
+
+  .btn-secondary {
+    background-color: var(--color-secondary);
+    color: white;
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+  }
+  .btn-secondary:hover {
+    background-color: #0891b2; /* Darker cyan */
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.5);
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+</style>

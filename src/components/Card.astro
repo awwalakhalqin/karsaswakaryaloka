@@ -1,0 +1,140 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  title: string;
+  description: string;
+  href?: string;
+  image?: string;
+}
+
+const { title, description, href, image } = Astro.props;
+---
+
+<div class="card-container">
+  {href ? (
+    <a href={href} class="card glass-panel">
+      <div class="card-inner">
+        {image && (
+          <div class="card-image-wrapper">
+            <Image src={image} alt={title} class="card-image" width={800} height={450} />
+          </div>
+        )}
+        <h3 class="card-title">{title}</h3>
+        <p class="card-desc">{description}</p>
+      </div>
+    </a>
+  ) : (
+    <div class="card glass-panel">
+      <div class="card-inner">
+         {image && (
+          <div class="card-image-wrapper">
+            <Image src={image} alt={title} class="card-image" width={800} height={450} />
+          </div>
+        )}
+        <h3 class="card-title">{title}</h3>
+        <p class="card-desc">{description}</p>
+      </div>
+    </div>
+  )}
+</div>
+
+<style>
+  .card-container {
+    perspective: 1000px;
+    height: 100%;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: linear-gradient(180deg, rgba(31, 41, 55, 0.4) 0%, rgba(17, 24, 39, 0.8) 100%);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.08), transparent 40%);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .card-container > a.card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.2);
+  }
+
+  .card:hover::before {
+    opacity: 1;
+  }
+
+  .card-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .card-image-wrapper {
+    margin: -2rem -2rem 1.5rem -2rem;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .card:hover .card-image {
+    transform: scale(1.05);
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    color: var(--color-text-main);
+    margin-bottom: 1rem;
+  }
+
+  .card-desc {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    flex-grow: 1;
+  }
+</style>
+
+<script>
+  function initCards() {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e: any) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  }
+
+  // Run on first load
+  initCards();
+  // Run on ViewTransitions
+  document.addEventListener('astro:page-load', initCards);
+</script>
