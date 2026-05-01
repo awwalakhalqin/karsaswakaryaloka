@@ -8,36 +8,54 @@ import Footer from '../components/Footer.astro';
 export async function getStaticPaths() {
   const storyblokApi = useStoryblokApi();
 
-  const { data } = await storyblokApi.get("cdn/links", {
-    version: "draft", // draft buat liat preview pas lagi edit
-  });
+  try {
+    const { data } = await storyblokApi.get("cdn/links", {
+      version: "draft",
+    });
 
-  const links = data.links;
+    const links = data.links;
 
-  return Object.keys(links).map((linkKey) => {
-    return {
-      params: {
-        slug: links[linkKey].slug === "home" ? undefined : links[linkKey].slug,
-      },
-    };
-  });
+    return Object.keys(links).map((linkKey) => {
+      return {
+        params: {
+          slug: links[linkKey].slug === "home" ? undefined : links[linkKey].slug,
+        },
+      };
+    });
+  } catch (error) {
+    console.error("Storyblok API Error (getStaticPaths):", error.message || error);
+    // Return empty array so build doesn't crash, but you'll know why pages are missing
+    return [];
+  }
 }
 
 const { slug } = Astro.params;
 
 const storyblokApi = useStoryblokApi();
+let story;
 
-const { data } = await storyblokApi.get(`cdn/stories/${slug === undefined ? "home" : slug}`, {
-  version: "draft",
-});
-
-const story = data.story;
+try {
+  const { data } = await storyblokApi.get(`cdn/stories/${slug === undefined ? "home" : slug}`, {
+    version: "draft",
+  });
+  story = data.story;
+} catch (error) {
+  console.error("Storyblok API Error (Component Render):", error.message || error);
+  // Fallback content atau handle error
+}
 ---
 
-<Layout title={story.name}>
+<Layout title={story?.name || "Content Not Found"}>
   <Navbar />
   <main class="container py-20">
-    <StoryblokComponent blok={story.content} />
+    {story ? (
+      <StoryblokComponent blok={story.content} />
+    ) : (
+      <div class="text-center py-20">
+        <h2>Konten tidak tersedia</h2>
+        <p>Gagal mengambil data dari Storyblok. Periksa konfigurasi API Token Anda.</p>
+      </div>
+    )}
   </main>
   <Footer />
 </Layout>
