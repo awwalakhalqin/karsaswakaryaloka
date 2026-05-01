@@ -13,7 +13,9 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
+    "@storyblok/astro": "^9.0.4",
     "astro": "^4.16.19",
-    "lucide-static": "^1.11.0"
+    "lucide-static": "^1.11.0",
+    "vite-plugin-mkcert": "^1.17.6"
   }
 }

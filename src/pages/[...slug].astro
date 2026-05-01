@@ -1,0 +1,50 @@
+---
+import { useStoryblokApi } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const storyblokApi = useStoryblokApi();
+
+  const { data } = await storyblokApi.get("cdn/links", {
+    version: "draft", // draft buat liat preview pas lagi edit
+  });
+
+  const links = data.links;
+
+  return Object.keys(links).map((linkKey) => {
+    return {
+      params: {
+        slug: links[linkKey].slug === "home" ? undefined : links[linkKey].slug,
+      },
+    };
+  });
+}
+
+const { slug } = Astro.params;
+
+const storyblokApi = useStoryblokApi();
+
+const { data } = await storyblokApi.get(`cdn/stories/${slug === undefined ? "home" : slug}`, {
+  version: "draft",
+});
+
+const story = data.story;
+---
+
+<Layout title={story.name}>
+  <Navbar />
+  <main class="container py-20">
+    <StoryblokComponent blok={story.content} />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+    .py-20 {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+</style>

@@ -1,0 +1,168 @@
+---
+import { Image } from 'astro:assets';
+import { storyblokEditable } from '@storyblok/astro';
+import Button from '../components/Button.astro';
+
+const { blok } = Astro.props;
+
+// Helper buat handle asset dari Storyblok
+const mainImage = blok.image?.filename;
+const galleryImages = blok.gallery?.map(item => item.filename) || [];
+---
+
+<div {...storyblokEditable(blok)} class="project-grid">
+  <!-- Gallery Section -->
+  <div class="gallery-section">
+    <div class="main-image-container glass-panel">
+      <img 
+        id="main-image" 
+        src={mainImage} 
+        alt={blok.title} 
+        class="main-image"
+        loading="lazy"
+      />
+    </div>
+    <div class="thumbnail-grid">
+      {galleryImages.map((img, idx) => (
+        <button class={`thumb-btn ${idx === 0 ? 'active' : ''}`} data-src={img}>
+            <img 
+                src={img} 
+                alt={`${blok.title} gallery ${idx}`}
+                loading="lazy"
+            />
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <!-- Info Section -->
+  <div class="info-section">
+    <div class="project-meta">
+      <span class="category-badge">{blok.category}</span>
+      <span class="meta-item"><strong>Client:</strong> {blok.client}</span>
+      <span class="meta-item"><strong>Tahun:</strong> {blok.year}</span>
+    </div>
+
+    <h1 class="project-title">{blok.title}</h1>
+    
+    <div class="project-content">
+      <h3>Tentang Proyek</h3>
+      <p>{blok.content}</p>
+    </div>
+
+    <div class="cta-box glass-panel">
+      <h4>Tertarik dengan solusi serupa?</h4>
+      <p>Diskusikan kebutuhan teknologi bisnis Anda bersama tim ahli kami.</p>
+      <Button href="/contact" variant="primary" style="width: 100%;">Mulai Konsultasi Free</Button>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Styling sama dengan yang ada di [slug].astro sebelumnya */
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    margin-bottom: 5rem;
+  }
+
+  .main-image-container {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+  }
+
+  .thumbnail-grid {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .thumb-btn {
+    flex: 0 0 100px;
+    height: 70px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 2px solid transparent;
+    cursor: pointer;
+    background: none;
+    padding: 0;
+    transition: all 0.2s ease;
+  }
+
+  .thumb-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .thumb-btn.active {
+    border-color: var(--color-cyan);
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
+  }
+
+  .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .category-badge {
+    background: rgba(14, 165, 233, 0.1);
+    color: var(--color-cyan);
+    padding: 0.25rem 1rem;
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: 1px solid rgba(14, 165, 233, 0.2);
+  }
+
+  .meta-item {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .project-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    margin-bottom: 2rem;
+  }
+
+  .project-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-main);
+  }
+
+  .project-content p {
+    color: var(--color-text-muted);
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  .cta-box {
+    padding: 2.5rem;
+    text-align: center;
+    border: 1px solid rgba(14, 165, 233, 0.2);
+  }
+
+  @media (max-width: 992px) {
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

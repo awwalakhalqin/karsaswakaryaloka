@@ -178,38 +178,6 @@ const services = [
       </div>
     </section>
 
-    </section>
-
-    <!-- Industry Focus Section -->
-    <section class="industries">
-      <div class="container">
-        <div class="section-header">
-          <span class="badge">Industries We Serve</span>
-          <h2>Solusi Tailor-Made untuk Berbagai Industri</h2>
-          <p>Kami memahami setiap industri memiliki tantangan unik. PT Karsa Swakarya Loka menghadirkan solusi teknologi yang spesifik untuk kebutuhan sektor Anda.</p>
-        </div>
-        
-        <div class="industry-grid">
-          <div class="industry-card">
-            <h3>Healthcare</h3>
-            <p>Sistem Informasi Klinik (SIK), Manajemen Rumah Sakit, dan Rekam Medis Elektronik.</p>
-          </div>
-          <div class="industry-card">
-            <h3>Enterprise</h3>
-            <p>ERP, CRM, Automasi Workflow, dan Dashboard Analitik untuk efisiensi korporat.</p>
-          </div>
-          <div class="industry-card">
-            <h3>Education</h3>
-            <p>LMS, Sistem Akademik sekolah, dan platform pembelajaran digital interaktif.</p>
-          </div>
-          <div class="industry-card">
-            <h3>Retail & SME</h3>
-            <p>Point of Sale (POS), Inventory Management, dan E-commerce platform.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <CTA />
   </main>
 
@@ -241,52 +209,6 @@ const services = [
     background: rgba(255, 255, 255, 0.05);
     border-color: var(--color-cyan);
     transform: translateY(-5px);
-  }
-
-  /* Industries Section */
-  .industries {
-    padding: 100px 0;
-    position: relative;
-    background: linear-gradient(to bottom, transparent, rgba(6, 18, 45, 0.5));
-  }
-
-  .industry-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 4rem;
-  }
-
-  .industry-card {
-    padding: 2.5rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: var(--radius-lg);
-    transition: all 0.3s ease;
-  }
-
-  .industry-card:hover {
-    border-color: var(--color-cyan);
-    background: rgba(14, 165, 233, 0.05);
-    transform: scale(1.02);
-  }
-
-  .industry-card h3 {
-    font-family: var(--font-secondary);
-    font-size: 1.5rem;
-    color: var(--color-cyan);
-    margin-bottom: 1rem;
-  }
-
-  .industry-card p {
-    color: var(--color-text-muted);
-    line-height: 1.6;
-  }
-
-  @media (max-width: 768px) {
-    .industry-grid {
-      grid-template-columns: 1fr;
-    }
   }
 
   .tech-name {

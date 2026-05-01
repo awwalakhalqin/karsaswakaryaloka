@@ -7,9 +7,9 @@ export const portfolios = [
     year: "2023",
     description: "Sistem manajemen pasien dengan booking online, rekam medis (EMR), dan WhatsApp automation.",
     content: "Membangun ekosistem digital lengkap untuk klinik kecantikan. Fitur utama mencakup sistem booking real-time yang mengurangi beban admin, rekam medis elektronik yang aman, dan integrasi WhatsApp API untuk notifikasi otomatis sebelum jadwal perawatan dan follow-up paska perawatan.",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dad99978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1616391182219-e080b4d1043a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1576091160550-2173dad99978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1616391182219-e080b4d1043a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
     ]
@@ -22,11 +22,11 @@ export const portfolios = [
     year: "2023",
     description: "Platform apotek dengan manajemen stok real-time, resep digital, dan integrasi BPJS.",
     content: "Solusi digital untuk modernisasi apotek. Memungkinkan apoteker mengelola ribuan SKU obat dengan akurasi stok 100%. Dilengkapi sistem pembaca resep digital dan modul pelaporan otomatis untuk klaim asuransi maupun BPJS.",
-    image: "https://images.unsplash.com/photo-1587854692152-cbe660dbbb88?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1586015555751-63bb77f4322a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1587854692152-cbe660dbbb88?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1586015555751-63bb77f4322a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1576602976047-174e57a47881?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1471864190281-ad599f5732a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+      "https://images.unsplash.com/photo-1585435557343-3b092031a831?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
     ]
   },
   {
@@ -37,10 +37,10 @@ export const portfolios = [
     year: "2022",
     description: "Sistem tracking laundry real-time dengan notifikasi WhatsApp otomatis ke pelanggan.",
     content: "Meningkatkan kepercayaan pelanggan dengan sistem transparansi cucian. Pelanggan mendapatkan link unik untuk melihat progres cucian (cuci, kering, lipat, packing). Begitu selesai, server otomatis mengirim pesan WA untuk pengambilan.",
-    image: "https://images.unsplash.com/photo-1545173153-5d04400976ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1545173153-5d04400976ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1521665724989-b1320ef21ba1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1541535881962-3bb380b08458?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
     ]
   },
@@ -71,7 +71,7 @@ export const portfolios = [
     gallery: [
       "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1454165833202-d1964aecf9fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
     ]
   },
   {

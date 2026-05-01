@@ -1,10 +1,17 @@
 import { defineConfig } from 'astro/config';
-
 import sitemap from '@astrojs/sitemap';
+import { storyblok } from '@storyblok/astro';
+import { loadEnv } from 'vite';
+
+const env = loadEnv("", process.cwd(), 'STORYBLOK');
 
 export default defineConfig({
   site: 'https://karsaswakaryaloka.id',
   compressHTML: true,
+
+  server: {
+    port: 4322,
+  },
 
   prefetch: {
     prefetchAll: true,
@@ -12,11 +19,26 @@ export default defineConfig({
   },
 
   image: {
-    remotePatterns: [{
-      protocol: 'https',
-      hostname: 'images.unsplash.com',
-    }],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'a.storyblok.com',
+      }
+    ],
   },
 
-  integrations: [sitemap()],
+  integrations: [
+    sitemap(),
+    storyblok({
+      accessToken: env.STORYBLOK_TOKEN,
+      components: {
+        // Kita bakal daftarin komponen di sini nanti
+        project: "storyblok/Project",
+      },
+    })
+  ],
 });
