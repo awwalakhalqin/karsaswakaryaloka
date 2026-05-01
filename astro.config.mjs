@@ -4,7 +4,7 @@ import { storyblok } from '@storyblok/astro';
 import { loadEnv } from 'vite';
 
 const env = loadEnv("", process.cwd(), 'STORYBLOK');
-const STORYBLOK_TOKEN = env.STORYBLOK_TOKEN || process.env.STORYBLOK_TOKEN;
+const STORYBLOK_TOKEN = (env.STORYBLOK_TOKEN || process.env.STORYBLOK_TOKEN || '').trim();
 
 export default defineConfig({
   site: 'https://karsaswakaryaloka.id',
@@ -33,7 +33,7 @@ export default defineConfig({
   },
 
   integrations: [
-    sitemap(),
+    // sitemap(),
     storyblok({
       accessToken: STORYBLOK_TOKEN,
       components: {
